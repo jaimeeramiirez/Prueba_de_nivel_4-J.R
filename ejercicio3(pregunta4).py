@@ -49,6 +49,3 @@ print("La ruta más corta es:")
 for i in ruta_minima:
     print(heroes[i])
 print("Con una longitud total de:", calcular_ruta(ruta_minima))
-
-
-
