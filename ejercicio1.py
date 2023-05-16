@@ -1,5 +1,5 @@
-import numpy as np
-from heapq import heappop, heappush
+import numpy as np # importamos numpy
+from heapq import heappop, heappush # importamos heappop y heappush de heapq para la cola de prioridad (heap)
 
 # Definición de personajes y grafo
 personajes = ['Iron Man', 'The Incredible Hulk', 'Khan', 'Thor', 'Captain America', 'Ant-Man', 'Nick Fury', 'The Winter Soldier']
