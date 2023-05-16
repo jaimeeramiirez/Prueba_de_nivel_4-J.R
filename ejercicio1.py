@@ -27,12 +27,12 @@ def prim(grafo, inicio): # inicio es el índice del nodo inicial
         peso, u = heappop(cola_prioridad) # extraemos el nodo con menor peso
         if not visitados[u]: # si no está visitado
             visitados[u] = True # lo marcamos como visitado
-            for v, peso_uv in enumerate(grafo[u]):
-                if not visitados[v] and (pesos[v] == -1 or pesos[v] < peso_uv):
-                    pesos[v] = peso_uv
-                    previos[v] = u
-                    heappush(cola_prioridad, (peso_uv, v))
-    return previos
+            for v, peso_uv in enumerate(grafo[u]): # para cada nodo v adyacente a u
+                if not visitados[v] and (pesos[v] == -1 or pesos[v] < peso_uv): # si no está visitado y el peso es menor
+                    pesos[v] = peso_uv # actualizamos el peso
+                    previos[v] = u # actualizamos el nodo previo
+                    heappush(cola_prioridad, (peso_uv, v)) # añadimos el nodo a la cola de prioridad
+    return previos # devolvemos la lista de nodos previos
 
 # -----------------------------
 # APARTADO A
