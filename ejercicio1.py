@@ -37,40 +37,40 @@ def prim(grafo, inicio): # inicio es el índice del nodo inicial
 # -----------------------------
 # APARTADO A
 # -----------------------------
-print("\n---APARTADO A---")
-inicio = personajes.index('Iron Man')
-previos = prim(grafo, inicio)
-print("Árbol de expansión máximo desde Iron Man:")
-for i, p in enumerate(previos):
-    if p is not None:
-        print(f'{personajes[p]} -- {personajes[i]}')
+print("\n---APARTADO A---") 
+inicio = personajes.index('Iron Man') # índice del nodo inicial
+previos = prim(grafo, inicio) # lista de nodos previos
+print("Árbol de expansión máximo desde Iron Man:") 
+for i, p in enumerate(previos): # para cada nodo
+    if p is not None: # si tiene nodo previo
+        print(f'{personajes[p]} -- {personajes[i]}') # mostramos el nodo previo y el nodo
 
 # -----------------------------
 # APARTADO B
 # -----------------------------
 print("\n---APARTADO B---")
-max_episodios = np.max(grafo)
-print(f'\nMáximo número de episodios compartidos: {max_episodios}')
-print('Pares de personajes que comparten el máximo número de episodios:')
-indices = np.where(grafo == max_episodios)
-for i in range(len(indices[0])):
-    if indices[0][i] < indices[1][i]:
-        print(f'{personajes[indices[0][i]]} -- {personajes[indices[1][i]]}')
+max_episodios = np.max(grafo) # máximo número de episodios compartidos
+print(f'\nMáximo número de episodios compartidos: {max_episodios}') 
+print('Pares de personajes que comparten el máximo número de episodios:') 
+indices = np.where(grafo == max_episodios) # índices de los pares de personajes que comparten el máximo número de episodios
+for i in range(len(indices[0])): # para cada par de personajes
+    if indices[0][i] < indices[1][i]: # si el primer índice es menor que el segundo
+        print(f'{personajes[indices[0][i]]} -- {personajes[indices[1][i]]}') # mostramos el par de personajes
 
 # -----------------------------
 # APARTADO C
 # -----------------------------
-print("\n---APARTADO C---")
-print('\nTodos los personajes:')
-for personaje in personajes:
-    print(personaje)
+print("\n---APARTADO C---") 
+print('\nTodos los personajes:') 
+for personaje in personajes: # para cada personaje
+    print(personaje) # mostramos el personaje
 
 # -----------------------------
 # APARTADO D
 # -----------------------------
 print("\n---APARTADO D---")
 print('\nPersonajes que aparecieron en nueve episodios de la saga:')
-indices_nueve_episodios = np.where(grafo == 9)
-for i in range(len(indices_nueve_episodios[0])):
-    if indices_nueve_episodios[0][i] < indices_nueve_episodios[1][i]:
-        print(f'{personajes[indices_nueve_episodios[0][i]]} -- {personajes[indices_nueve_episodios[1][i]]}')
+indices_nueve_episodios = np.where(grafo == 9) # índices de los pares de personajes que comparten nueve episodios
+for i in range(len(indices_nueve_episodios[0])): # para cada par de personajes
+    if indices_nueve_episodios[0][i] < indices_nueve_episodios[1][i]: # si el primer índice es menor que el segundo
+        print(f'{personajes[indices_nueve_episodios[0][i]]} -- {personajes[indices_nueve_episodios[1][i]]}') # mostramos el par de personajes
