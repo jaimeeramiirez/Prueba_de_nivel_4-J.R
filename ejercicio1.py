@@ -15,18 +15,18 @@ grafo = np.array([
 ])
 
 # Algoritmo de Prim
-def prim(grafo, inicio):
-    n = len(grafo)
-    visitados = [False]*n
-    pesos = [-1]*n
-    previos = [None]*n
-    pesos[inicio] = 0
-    cola_prioridad = [(0, inicio)]
+def prim(grafo, inicio): # inicio es el índice del nodo inicial
+    n = len(grafo) # número de nodos
+    visitados = [False]*n # lista de nodos visitados
+    pesos = [-1]*n # lista de pesos de los nodos
+    previos = [None]*n # lista de nodos previos
+    pesos[inicio] = 0 # el peso del nodo inicial es 0
+    cola_prioridad = [(0, inicio)] # cola de prioridad con el peso y el nodo
 
-    while cola_prioridad:
-        peso, u = heappop(cola_prioridad)
-        if not visitados[u]:
-            visitados[u] = True
+    while cola_prioridad: # mientras la cola no esté vacía
+        peso, u = heappop(cola_prioridad) # extraemos el nodo con menor peso
+        if not visitados[u]: # si no está visitado
+            visitados[u] = True # lo marcamos como visitado
             for v, peso_uv in enumerate(grafo[u]):
                 if not visitados[v] and (pesos[v] == -1 or pesos[v] < peso_uv):
                     pesos[v] = peso_uv
