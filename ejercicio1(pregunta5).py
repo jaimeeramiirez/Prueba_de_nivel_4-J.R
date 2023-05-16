@@ -35,9 +35,9 @@ def prim(grafo, inicio): # inicio es el índice del nodo inicial
     return previos # devolvemos la lista de nodos previos
 
 # -----------------------------
-# APARTADO A
+# APARTADO B
 # -----------------------------
-print("\n---APARTADO A---") 
+print("\n---APARTADO B---") 
 inicio = personajes.index('Iron Man') # índice del nodo inicial
 previos = prim(grafo, inicio) # lista de nodos previos
 print("Árbol de expansión máximo desde Iron Man:") 
@@ -46,9 +46,9 @@ for i, p in enumerate(previos): # para cada nodo
         print(f'{personajes[p]} -- {personajes[i]}') # mostramos el nodo previo y el nodo
 
 # -----------------------------
-# APARTADO B
+# APARTADO C
 # -----------------------------
-print("\n---APARTADO B---")
+print("\n---APARTADO C---")
 max_episodios = np.max(grafo) # máximo número de episodios compartidos
 print(f'\nMáximo número de episodios compartidos: {max_episodios}') 
 print('Pares de personajes que comparten el máximo número de episodios:') 
@@ -58,17 +58,17 @@ for i in range(len(indices[0])): # para cada par de personajes
         print(f'{personajes[indices[0][i]]} -- {personajes[indices[1][i]]}') # mostramos el par de personajes
 
 # -----------------------------
-# APARTADO C
+# APARTADO D
 # -----------------------------
-print("\n---APARTADO C---") 
+print("\n---APARTADO D---") 
 print('\nTodos los personajes:') 
 for personaje in personajes: # para cada personaje
     print(personaje) # mostramos el personaje
 
 # -----------------------------
-# APARTADO D
+# APARTADO E
 # -----------------------------
-print("\n---APARTADO D---")
+print("\n---APARTADO E---")
 print('\nPersonajes que aparecieron en nueve episodios de la saga:')
 indices_nueve_episodios = np.where(grafo == 9) # índices de los pares de personajes que comparten nueve episodios
 for i in range(len(indices_nueve_episodios[0])): # para cada par de personajes
