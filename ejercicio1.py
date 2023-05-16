@@ -12,7 +12,7 @@ grafo = np.array([
   [7, 8, 1, 5, 2, 0, 1, 6],
   [3, 9, 5, 9, 4, 1, 0, 1],
   [2, 1, 0, 3, 5, 6, 1, 0]
-])
+]) # matriz de adyacencia
 
 # Algoritmo de Prim
 def prim(grafo, inicio): # inicio es el índice del nodo inicial
