@@ -1,6 +1,9 @@
 import networkx as nx
 
-# Apartado a
+# ---------------------------------------
+# Apartado A: Carga de los datos
+# ---------------------------------------
+
 heroes = ['Iron Man', 'The Incredible Hulk', 'Khan', 'Thor', 'Captain America', 'Ant-Man', 'Nick Fury', 'The Winter Soldier']
 
 twitter_matrix = [
@@ -25,30 +28,50 @@ instagram_matrix = [
     [33, 41, 24, 61, 45, 41, 11, 0]
 ]
 
+# ---------------------------------------
+# Apartado B: Creación de los grafos
+# ---------------------------------------
+
 twitter_graph = nx.Graph()
 instagram_graph = nx.Graph()
 
-# Apartado b
 for i in range(len(heroes)):
     for j in range(i+1, len(heroes)):
-        twitter_graph.add_edge(heroes[i], heroes[j], weight=twitter_matrix[i][j], label='Twitter')
+        twitter_graph.add_edge(heroes[i], heroes[j], weight=twitter_matrix[i][j], label='Twitter') 
         instagram_graph.add_edge(heroes[i], heroes[j], weight=instagram_matrix[i][j], label='Instagram')
 
-# Apartado c
+# ---------------------------------------
+# Apartado C: Árbol de expansión máximo
+# ---------------------------------------
+
+# Note: NetworkX's maximum_spanning_tree function by default considers maximum weight edges first
 max_tree_twitter = nx.maximum_spanning_tree(twitter_graph)
 max_tree_instagram = nx.maximum_spanning_tree(instagram_graph)
 
-# Apartado d
+# ---------------------------------------
+# Apartado D: Conexión entre 'Captain America' y 'Nick Fury' en Twitter
+# ---------------------------------------
+
 has_path_twitter = nx.has_path(twitter_graph, 'Captain America', 'Nick Fury')
 
-# Apartado e
+# ---------------------------------------
+# Apartado E: Conexión entre 'The Winter Soldier' e 'Iron Man' en cualquier red social
+# ---------------------------------------
+
 has_path_social = nx.has_path(twitter_graph, 'The Winter Soldier', 'Iron Man') or nx.has_path(instagram_graph, 'The Winter Soldier', 'Iron Man')
 
-# Apartado f
+# ---------------------------------------
+# Apartado F: Personas que Thor sigue en Instagram
+# ---------------------------------------
+
 thor_follows = [n for n in instagram_graph.neighbors('Thor')]
 
+# ---------------------------------------
+# Impresión de los resultados
+# ---------------------------------------
+
 print("\n")
-print(f"Árbol de expansión máximo para Twitter: {max_tree_twitter.edges(data=True)}")
+print(f"Árbol de expansión máximo para Twitter: {max_tree_twitter.edges(data=True)}") 
 print("\n")
 print(f"Árbol de expansión máximo para Instagram: {max_tree_instagram.edges(data=True)}")
 print("\n")
