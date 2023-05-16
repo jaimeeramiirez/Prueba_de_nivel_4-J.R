@@ -1,10 +1,8 @@
 import numpy as np
 from heapq import heappop, heappush
 
-# Nombres de los personajes
+# Definición de personajes y grafo
 personajes = ['Iron Man', 'The Incredible Hulk', 'Khan', 'Thor', 'Captain America', 'Ant-Man', 'Nick Fury', 'The Winter Soldier']
-
-# Matriz de adyacencia
 grafo = np.array([
   [0, 6, 0, 1, 8, 7, 3, 2],
   [6, 0, 0, 6, 1, 8, 9, 1],
@@ -36,9 +34,10 @@ def prim(grafo, inicio):
                     heappush(cola_prioridad, (peso_uv, v))
     return previos
 
-# Apartado a
-print("\n")
-print("\nApartado a:")
+# -----------------------------
+# APARTADO A
+# -----------------------------
+print("\n---APARTADO A---")
 inicio = personajes.index('Iron Man')
 previos = prim(grafo, inicio)
 print("Árbol de expansión máximo desde Iron Man:")
@@ -46,9 +45,10 @@ for i, p in enumerate(previos):
     if p is not None:
         print(f'{personajes[p]} -- {personajes[i]}')
 
-# Apartado b
-print("\n")
-print("\nApartado b:")
+# -----------------------------
+# APARTADO B
+# -----------------------------
+print("\n---APARTADO B---")
 max_episodios = np.max(grafo)
 print(f'\nMáximo número de episodios compartidos: {max_episodios}')
 print('Pares de personajes que comparten el máximo número de episodios:')
@@ -57,21 +57,20 @@ for i in range(len(indices[0])):
     if indices[0][i] < indices[1][i]:
         print(f'{personajes[indices[0][i]]} -- {personajes[indices[1][i]]}')
 
-# Apartado c
-print("\n")
-print("\nApartado c:")
+# -----------------------------
+# APARTADO C
+# -----------------------------
+print("\n---APARTADO C---")
 print('\nTodos los personajes:')
 for personaje in personajes:
     print(personaje)
 
-# Apartado d
-print("\n")
-print("\nApartado d:")
+# -----------------------------
+# APARTADO D
+# -----------------------------
+print("\n---APARTADO D---")
 print('\nPersonajes que aparecieron en nueve episodios de la saga:')
 indices_nueve_episodios = np.where(grafo == 9)
 for i in range(len(indices_nueve_episodios[0])):
     if indices_nueve_episodios[0][i] < indices_nueve_episodios[1][i]:
         print(f'{personajes[indices_nueve_episodios[0][i]]} -- {personajes[indices_nueve_episodios[1][i]]}')
-
-
-print("\n")
