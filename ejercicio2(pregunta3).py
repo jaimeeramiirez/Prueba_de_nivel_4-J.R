@@ -4,7 +4,7 @@ import networkx as nx
 # Apartado A: Carga de los datos
 # ---------------------------------------
 
-heroes = ['Iron Man', 'The Incredible Hulk', 'Khan', 'Thor', 'Captain America', 'Ant-Man', 'Nick Fury', 'The Winter Soldier']
+superheroes = ['Iron Man', 'The Incredible Hulk', 'Khan', 'Thor', 'Captain America', 'Ant-Man', 'Nick Fury', 'The Winter Soldier']
 
 twitter_matrix = [
     [0, 75, 40, 16, 80, 20, 99, 23],
@@ -35,10 +35,10 @@ instagram_matrix = [
 twitter_graph = nx.Graph()
 instagram_graph = nx.Graph()
 
-for i in range(len(heroes)):
-    for j in range(i+1, len(heroes)):
-        twitter_graph.add_edge(heroes[i], heroes[j], weight=twitter_matrix[i][j], label='Twitter') 
-        instagram_graph.add_edge(heroes[i], heroes[j], weight=instagram_matrix[i][j], label='Instagram')
+for i in range(len(superheroes)):
+    for j in range(i+1, len(superheroes)):
+        twitter_graph.add_edge(superheroes[i], superheroes[j], weight=twitter_matrix[i][j], label='Twitter') 
+        instagram_graph.add_edge(superheroes[i], superheroes[j], weight=instagram_matrix[i][j], label='Instagram')
 
 # ---------------------------------------
 # Apartado C: Árbol de expansión máximo
