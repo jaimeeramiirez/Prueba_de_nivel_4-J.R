@@ -16,7 +16,7 @@ distancias = [
     [233, 401, 280, 361, 576, 621, 100, 0]
 ]
 
-heroes = ["Iron Man", "The Incredible Hulk", "Khan", "Thor", "Captain America", "Ant-Man", "Nick Fury", "The Winter Soldier"]
+superheroes = ["Iron Man", "The Incredible Hulk", "Khan", "Thor", "Captain America", "Ant-Man", "Nick Fury", "The Winter Soldier"]
 
 # ---------------------------------------
 # Apartado B: Función para calcular la longitud total de la ruta
@@ -47,5 +47,5 @@ ruta_minima = min(rutas, key=calcular_ruta)
 
 print("La ruta más corta es:")
 for i in ruta_minima:
-    print(heroes[i])
+    print(superheroes[i])
 print("Con una longitud total de:", calcular_ruta(ruta_minima))
